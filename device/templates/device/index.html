@@ -1,0 +1,45 @@
+{% extends 'device/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-image">
+
+  </div><!--/card-image-->
+  <div class="card-content">
+    <span class="card-title">Je suis la page Home (device)</span>
+
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Brand</th>
+          <th>Model</th>
+          <th>IP Rj45</th>
+          <th>IP Wifi</th>
+          <th>Utility</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for post in posts %}
+        <tr>
+          <td>{{ post.device_brand }}</td>
+          <td>{% if post.device_model %} {{ post.device_model }} {% endif %}</td>
+          <td>{% if post.device_IP_rj45 %}<a href="{% url 'device-detail' post.pk %}">{{ post.device_IP_rj45 }}</a>{% endif %}</td>
+          <td>{% if post.device_IP_wifi %}<a href="{% url 'device-detail' post.pk %}">{{ post.device_IP_wifi }}</a>{% endif %}</td>
+          <td>{% if post.device_utility %} {{ post.device_utility }} {% endif %}</td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+  </div><!--/card-content-->
+  <div class="card-action">
+
+  </div><!--/card-action-->
+</div><!--/card-->
+
+{% endblock content %}

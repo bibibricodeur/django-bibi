@@ -1,0 +1,47 @@
+{% extends 'device/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="card">
+  <div class="card-image">
+
+  </div><!--/card-image-->
+  <div class="card-content">
+    <span class="card-title">Je suis la page Home (device)</span>
+
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Response</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr><td><strong>Brand</strong></td><td>{% if object.device_brand %} {{ object.device_brand }} {% endif %}</td></tr>
+        <tr><td><strong>Model</strong></td><td>{% if object.device_model %} {{ object.device_model }} {% endif %}</td></tr>
+        <tr><td><strong>Licence</strong></td><td>{% if object.device_licence %} {{ object.device_licence }} {% endif %}</td></tr>
+        <tr><td><strong>System</strong></td><td>{% if object.device_system %} {{ object.device_system }} {% endif %}</td></tr>
+        <tr><td><strong>Utility</strong></td><td>{% if object.device_utility %} {{ object.device_utility }} {% endif %}</td></tr>
+        <tr><td><strong>HDD</strong></td><td>{% if object.device_HDD %} {{ object.device_HDD }} {% endif %}</td></tr>
+        <tr><td><strong>IP rj45</strong></td><td>{% if object.device_IP_rj45 %} {{ object.device_IP_rj45 }} {% endif %}</td></tr>
+        <tr><td><strong>MAC rj45</strong></td><td>{% if object.device_MAC_rj45 %} {{ object.device_MAC_rj45 }} {% endif %}</td></tr>
+        <tr><td><strong>IP WiFi</strong></td><td>{% if object.device_IP_wifi %} {{ object.device_IP_wifi }} {% endif %}</td></tr>
+        <tr><td><strong>MAC WiFi</strong></td><td>{% if object.device_MAC_wifi %} {{ object.device_MAC_wifi }} {% endif %}</td></tr>
+        <tr><td><strong>RAM</strong></td><td>{% if object.device_RAM %} {{ object.device_RAM }} {% endif %}</td></tr>
+        <tr><td><strong>SSD</strong></td><td>{% if object.device_SSD %} {{ object.device_SSD }} {% endif %}</td></tr>
+      </tbody>
+    </table>
+
+  </div><!--/card-content-->
+    <div class="card-action">
+      {% if user.is_authenticated %}
+        <a href="{% url 'device-update' object.pk %}">Edit</a>
+        <a href="{% url 'device-delete' object.pk %}">Delete</a>
+      {% endif %}
+    </div><!--/card-action-->
+</div><!--/card-->
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% load static %}
+
+<!--  Scripts-->
+<script src="{% static '/dist/js/jquery-3.5.1.min.js' %}"></script>
+<script src="{% static '/dist/js/materialize.min.js' %}"></script>
+<script src="{% static '/js/app.js' %}"></script>
+<script src="{% static '/js/meteo.ch/meteo.ch.js' %}"></script>
+
+<script>
+window.onscroll = function () {
+  afficherBouton()
+};
+function afficherBouton() {
+  var elem = document.getElementById('boutonRemonter');
+  var nombrePixels = window.pageYOffset | document.body.scrollTop;
+  if (nombrePixels > 240) {
+    elem.style.display = 'block';
+  } else if (nombrePixels <= 240) {
+    elem.style.display = 'none';
+  }
+}
+</script>

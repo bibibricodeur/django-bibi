@@ -1,0 +1,24 @@
+{% extends 'wiki/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <div class="card">
+      <div class="card-image">
+
+      </div><!--/card-image-->
+      <div class="card-content">
+        <span class="card-title">Je suis la page Home (wiki)</span>
+        <ul class="collection">
+          {% for post in posts %}
+            <a class="collection-item" href="{% url 'wiki-detail' post.pk %}">{{ post.wiki_title }}</a>
+          {% endfor %}
+        </ul>
+      </div><!--/card-content-->
+      <div class="card-action">
+
+      </div><!--/card-action-->
+    </div><!--/card-->
+
+{% endblock content %}

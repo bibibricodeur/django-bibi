@@ -1,0 +1,36 @@
+
+html {
+    scroll-behavior: smooth;
+}
+.contenu {
+    min-height: 100vh;
+}
+.card-image-goeland {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+code {
+    background-color: #666;
+    color: #ddd;
+    padding: 0.3em;
+}
+
+#boutonRemonter {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    z-index: 99;
+}
+#boutonRemonter:hover {
+    transition-duration: 0.7s;
+    opacity: 0.3;
+}
+
+.create {
+  color: black !important;
+}

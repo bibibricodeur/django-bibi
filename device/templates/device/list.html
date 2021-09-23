@@ -1,0 +1,59 @@
+{% extends 'device/base.html' %}
+
+{% block title %} List {% endblock %}
+
+{% block content %}
+
+    <div class="card">
+      <div class="card-image">
+
+      </div><!--/card-image-->
+      <div class="card-content">
+        <span class="card-title">Je suis la page List (device)</span>
+        <table class="striped">
+          <thead>
+            <tr>
+              <th>Brand</th>
+              <th>Model</th>
+              <th>IP Rj45</th>
+              <th>IP Wifi</th>
+              <th>Utility</th>
+              {% if user.is_authenticated %}
+              <th>Action</th>
+              {% endif %}
+            </tr>
+          </thead>
+
+          <tbody>
+            {% for post in posts %}
+            <tr>
+              <td>{{ post.device_brand }}</td>
+              <td>{{ post.device_model }}</td>
+              <td>{% if post.device_IP_rj45 %}<a href="{% url 'device-detail' post.pk %}">{{ post.device_IP_rj45 }}</a>{% endif %}</td>
+              <td>{% if post.device_IP_wifi %}<a href="{% url 'device-detail' post.pk %}">{{ post.device_IP_wifi }}</a>{% endif %}</td>
+              <td>{% if post.device_utility %} {{ post.device_utility }} {% endif %}</td>
+              {% if user.is_authenticated %}
+              <td><a href="#!">&#9999;</a></td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        {% if is_paginated %}
+        <ul class="pagination justify-content-center">
+          {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="waves-effect active"><a href="?page={{ num }}">{{ num }}</a></li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li class="waves-effect"><a href="?page={{ num }}">{{ num }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div><!--/card-content-->
+      <div class="card-action">
+
+      </div><!--/card-action-->
+    </div><!--/card-->
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'django-bibi/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+  <div class="card">
+    <div class="card-image">
+      <img src="{% static '960px_Strip-Side-project-650-final.jpg' %}" alt="My image">
+      <span class="card-title"></span>
+    </div><!--/card-image-->
+    <div class="card-content">
+      <span class="card-title">Je suis la page Home (django-bibi)</span>
+
+    </div><!--/card-content-->
+    <div class="card-action">
+      Source: <a href="https://www.commitstrip.com/fr/2014/11/25/west-side-project-story/">CommitStrip</a>
+    </div><!--/card-action-->
+  </div><!--/card-->
+
+
+{% endblock content %}

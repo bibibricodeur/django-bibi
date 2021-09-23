@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% load markdown_extras %}
+
+{% block title %} {{ object.blog_title }} {% endblock %}
+
+{% block content %}
+
+    <div class="card">
+      <div class="card-image">
+        {% if object.blog_picture.url is not null %}
+        <img src="{{ object.blog_picture.url }}" alt="Photo-{{ object.blog_title }}" width="750px;" class="mb-3">
+        {% endif %}
+      </div><!--/card-image-->
+      <div class="card-content">
+        <span class="card-title">{{ object.blog_title }}</span>
+        <div class="card-panel">
+          <span class="grey-text">{{ object.blog_description | markdown | safe }}</span>
+        </div>
+        {{ object.blog_content | markdown | safe }}
+      </div><!--/card -content-->
+      <div class="card-action">
+        <a class="create">Create the {{ object.blog_created }} {% if object.blog_author %} by {{ object.blog_author }} {% endif %}</a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'blog-update' object.pk %}">Edit</a>
+          <a href="{% url 'blog-delete' object.pk %}">Delete</a>
+        {% endif %}
+      </div><!--/card-action-->
+    </div><!--/card-->
+
+{% endblock content %}

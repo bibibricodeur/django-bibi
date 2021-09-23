@@ -1,0 +1,36 @@
+{% extends 'wiki/base.html' %}
+
+{% load markdown_extras %}
+
+{% block title %} {{ object.wiki_title }} {% endblock %}
+
+{% block content %}
+
+    <div class="card">
+      <div class="card-image">
+        {% if object.wiki_picture.url is not null %}
+        <img src="{{ object.wiki_picture.url }}" alt="Photo_{{ object.wiki_title }}" style="max-width: 90%; margin: 0 auto;">
+        {% endif %}
+      </div><!--/card-image-->
+      <div class="card-content">
+        <h1>{{ object.wiki_title }}</h1>
+        <blockquote>
+          {{ object.wiki_description | markdown | safe }}
+        </blockquote>
+        {{ object.wiki_content | markdown | safe }}
+        {% if object.wiki_file.url is not null %}
+            <a class="waves-effect waves-light btn-small" href="{{ object.wiki_file.url }}">File: {{ object.wiki_file.url|cut:"/media/wiki/" }}</a>
+        {% endif %}
+      </div><!--/card -content-->
+      <div class="card-action">
+        Create {{ object.wiki_created }} {% if object.wiki_author %} by {{ object.wiki_author }} {% endif %}
+        {% if user.is_authenticated %}
+        <div class="collection">
+          <a href="#!" class="collection-item">Edit</a>
+          <a href="#!" class="collection-item">Delete</a>
+        </div>
+        {% endif %}
+      </div><!--/card-action-->
+    </div><!--/card-->
+
+{% endblock content %}

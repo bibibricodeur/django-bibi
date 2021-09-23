@@ -1,0 +1,46 @@
+{% load static %}
+<div class="col s12 m3 l3">
+
+    <div class="card">
+      <div class="card-image card-image-goeland">
+        <img src="{% static 'img/logo_nicolas_180.png' %}" alt="My image">
+      </div><!--/card-image-->
+    </div><!--/card-->
+
+  <div class="card">
+    <div class="card-image">
+      <img src="">
+      <span class="card-title"></span>
+    </div><!--/card-image-->
+    <div class="card-content">
+      <span class="card-title" id="patelin"></span>
+      <ul class="collection">
+        <li class="collection-item" id="description"></li>
+        <!--<li class="collection-item" id="icone"></li>-->
+        <li class="collection-item" id="heure"></li>
+        <li class="collection-item" id="humidite"></li>
+        <li class="collection-item" id="pression"></li>
+        <li class="collection-item" id="temperature"></li>
+        <li class="collection-item" id="vitesse">Vitesse:</li>
+      </ul>
+    </div><!--/card-content-->
+    <div class="card-action">
+      Source: <a href="https://www.prevision-meteo.ch/meteo/localite/matha">prevision-meteo.ch</a>
+    </div><!--/card-action-->
+  </div><!--/card-->
+  
+   <div class="card">
+    <div class="card-image">
+      <img src="">
+      <span class="card-title"></span>
+    </div><!--/card-image-->
+    <div class="card-content">
+      <span class="card-title">Lien(s) externe(s)</span>
+      <div class="collection" id="widgetLiens">
+      </div><!--/collection-->
+    </div><!--/card-content-->
+    <div class="card-action">
+    </div><!--/card-action-->
+  </div><!--/card-->
+
+</div><!--/col s12 m3 l3-->

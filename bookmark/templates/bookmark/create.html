@@ -1,0 +1,25 @@
+{% extends 'bookmark/base.html' %}
+
+{% block title %} Create {% endblock %}
+
+{% block content %}
+
+    <div class="card">
+      <div class="card-image">
+
+      </div><!--/card-image-->
+      <div class="card-content">
+        <span class="card-title">Je suis la page Create (bookmark)</span>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div style="margin-top: 3em;">
+            <button class="waves-effect waves-light btn" type="submit">Submit</button>
+          </div>
+        <!--</form>-->
+      </div><!--/card-content-->
+      <div class="card-action">
+      </div><!--/card-action-->
+    </div><!--/card-->
+
+{% endblock content %}

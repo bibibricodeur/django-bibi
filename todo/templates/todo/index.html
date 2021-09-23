@@ -1,0 +1,24 @@
+{% extends 'todo/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+    <div class="card">
+      <div class="card-image">
+
+      </div><!--/card-image-->
+      <div class="card-content">
+        <span class="card-title">Je suis la page Home (todo)</span>
+        <ul class="collection">
+          {% for todo in todos %}
+            <a class="collection-item" href="{% url 'todo-detail' post.pk %}">{{ post.todo_title }}</a>
+          {% endfor %}
+        </ul>
+      </div><!--/card-content-->
+      <div class="card-action">
+
+      </div><!--/card-action-->
+    </div><!--/card-->
+
+{% endblock content %}
